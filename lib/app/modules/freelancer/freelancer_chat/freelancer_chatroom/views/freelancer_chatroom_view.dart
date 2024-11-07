@@ -118,7 +118,7 @@ class FreelancerChatroomView extends GetView<FreelancerChatroomController> {
               );
             },
           ),
-          Container(
+          SizedBox(
             height: size.height,
             width: size.width,
             child: DraggableScrollableSheet(

@@ -67,7 +67,7 @@ class FreelancerProfileView extends GetView<FreelancerProfileController> {
                 InventoryItem(
                   iconPath: AppAssets.cardIcon,
                   title: 'Change payment method',
-                  onTap: () {},
+                  onTap: controller.navigateToChangePaymentMethod,
                 ),
                 InventoryItem(
                   iconPath: AppAssets.currencyIcon,

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../../../domain/entities/appoitment.dart';
+import '../../../../domain/entities/appointment.dart';
 import '../../../../domain/use_cases/get_freelancer_appointments_use_case.dart';
 
 class FreelancerAppointmentController extends GetxController {

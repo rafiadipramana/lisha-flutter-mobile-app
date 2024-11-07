@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:lisha/app/config/app_assets.dart';
 import 'package:lisha/app/config/app_colors.dart';
 import 'package:lisha/app/extensions/text_styles/int_text_style_extension.dart';
-import 'package:lisha/app/modules/client//appointment/controllers/appointment_controller.dart';
+import 'package:lisha/app/modules/client//appointment/controllers/client_appointment_controller.dart';
 
 class AppointmentView extends GetView<AppointmentController> {
   const AppointmentView({super.key});

@@ -1,4 +1,4 @@
-import 'package:lisha/app/domain/entities/appoitment.dart';
+import 'package:lisha/app/domain/entities/appointment.dart';
 import 'package:lisha/app/domain/repositories/appointment_repository.dart';
 
 class GetFreelancerAppointmentsUseCase {

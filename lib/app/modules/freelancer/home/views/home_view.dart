@@ -9,8 +9,8 @@ import '../../../../domain/entities/portfolio_category.dart';
 import '../../../../extensions/text_styles/int_text_style_extension.dart';
 import '../../../../widgets/app_elevated_button.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/portfolio_card.dart';
-import '../widgets/portfolio_category_button.dart';
+import '../../../../widgets/shared/portfolio_card.dart';
+import '../../../../widgets/shared/portfolio_category_button.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});

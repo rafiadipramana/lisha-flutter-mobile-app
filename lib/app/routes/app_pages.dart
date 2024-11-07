@@ -2,8 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../modules/client/appointment/bindings/appointment_binding.dart';
-import '../modules/client/appointment/views/appointment_view.dart';
+import '../modules/client/client_appointment/bindings/client_appointment_binding.dart';
+import '../modules/client/client_appointment/client_book_appointment_date_chooser/bindings/client_book_appointment_date_chooser_binding.dart';
+import '../modules/client/client_appointment/client_book_appointment_date_chooser/views/client_book_appointment_date_chooser_view.dart';
+import '../modules/client/client_appointment/client_book_appointment_detail/bindings/client_book_appointment_detail_binding.dart';
+import '../modules/client/client_appointment/client_book_appointment_detail/views/client_book_appointment_detail_view.dart';
+import '../modules/client/client_appointment/client_book_appointment_succeed/bindings/client_book_appointment_succeed_binding.dart';
+import '../modules/client/client_appointment/client_book_appointment_succeed/views/client_book_appointment_succeed_view.dart';
+import '../modules/client/client_appointment/client_book_appointment_time_chooser/bindings/client_book_appointment_time_chooser_binding.dart';
+import '../modules/client/client_appointment/client_book_appointment_time_chooser/views/client_book_appointment_time_chooser_view.dart';
+import '../modules/client/client_appointment/views/client_appointment_view.dart';
+import '../modules/client/client_home/bindings/client_home_binding.dart';
+import '../modules/client/client_home/views/client_home_view.dart';
 import '../modules/client/service/bindings/service_binding.dart';
 import '../modules/client/service/views/service_view.dart';
 import '../modules/common/forgot_password/bindings/forgot_password_binding.dart';
@@ -25,6 +35,12 @@ import '../modules/freelancer/freelancer_chat/freelancer_chatroom/bindings/freel
 import '../modules/freelancer/freelancer_chat/freelancer_chatroom/views/freelancer_chatroom_view.dart';
 import '../modules/freelancer/freelancer_chat/views/freelancer_chat_view.dart';
 import '../modules/freelancer/freelancer_profile/bindings/freelancer_profile_binding.dart';
+import '../modules/freelancer/freelancer_profile/freelancer_payment_method/bindings/freelancer_payment_method_binding.dart';
+import '../modules/freelancer/freelancer_profile/freelancer_payment_method/views/freelancer_payment_method_view.dart';
+import '../modules/freelancer/freelancer_profile/freelancer_set_offer/bindings/freelancer_set_offer_binding.dart';
+import '../modules/freelancer/freelancer_profile/freelancer_set_offer/views/freelancer_set_offer_view.dart';
+import '../modules/freelancer/freelancer_profile/freelancer_subscription/bindings/freelancer_subscription_binding.dart';
+import '../modules/freelancer/freelancer_profile/freelancer_subscription/views/freelancer_subscription_view.dart';
 import '../modules/freelancer/freelancer_profile/views/freelancer_profile_view.dart';
 import '../modules/freelancer/freelancer_service/add_freelancer_service/bindings/add_freelancer_service_binding.dart';
 import '../modules/freelancer/freelancer_service/add_freelancer_service/views/add_freelancer_service_view.dart';
@@ -71,9 +87,31 @@ class AppPages {
       binding: HomeBinding(),
     ),
     GetPage(
-      name: _Paths.APPOINTMENT,
-      page: () => const AppointmentView(),
-      binding: AppointmentBinding(),
+      name: _Paths.CLIENT_APPOINTMENT,
+      page: () => const ClientAppointmentView(),
+      binding: ClientAppointmentBinding(),
+      children: [
+        GetPage(
+          name: _Paths.CLIENT_BOOK_APPOINTMENT_DATE_CHOOSER,
+          page: () => const ClientBookAppointmentDateChooserView(),
+          binding: ClientBookAppointmentDateChooserBinding(),
+        ),
+        GetPage(
+          name: _Paths.CLIENT_BOOK_APPOINTMENT_TIME_CHOOSER,
+          page: () => const ClientBookAppointmentTimeChooserView(),
+          binding: ClientBookAppointmentTimeChooserBinding(),
+        ),
+        GetPage(
+          name: _Paths.CLIENT_BOOK_APPOINTMENT_DETAIL,
+          page: () => const ClientBookAppointmentDetailView(),
+          binding: ClientBookAppointmentDetailBinding(),
+        ),
+        GetPage(
+          name: _Paths.CLIENT_BOOK_APPOINTMENT_SUCCEED,
+          page: () => const ClientBookAppointmentSucceedView(),
+          binding: ClientBookAppointmentSucceedBinding(),
+        ),
+      ],
     ),
     GetPage(
       name: _Paths.ADD_PORTFOLIO,
@@ -128,6 +166,23 @@ class AppPages {
       name: _Paths.FREELANCER_PROFILE,
       page: () => const FreelancerProfileView(),
       binding: FreelancerProfileBinding(),
+      children: [
+        GetPage(
+          name: _Paths.FREELANCER_PAYMENT_METHOD,
+          page: () => const FreelancerPaymentMethodView(),
+          binding: FreelancerPaymentMethodBinding(),
+        ),
+        GetPage(
+          name: _Paths.FREELANCER_SUBSCRIPTION,
+          page: () => const FreelancerSubscriptionView(),
+          binding: FreelancerSubscriptionBinding(),
+        ),
+        GetPage(
+          name: _Paths.FREELANCER_SET_OFFER,
+          page: () => const FreelancerSetOfferView(),
+          binding: FreelancerSetOfferBinding(),
+        ),
+      ],
     ),
     GetPage(
       name: _Paths.FREELANCER_APPOINTMENT,
@@ -138,6 +193,11 @@ class AppPages {
       name: _Paths.EDIT_PORTFOLIO,
       page: () => const EditPortfolioView(),
       binding: EditPortfolioBinding(),
+    ),
+    GetPage(
+      name: _Paths.CLIENT_HOME,
+      page: () => const ClientHomeView(),
+      binding: ClientHomeBinding(),
     ),
   ];
 }

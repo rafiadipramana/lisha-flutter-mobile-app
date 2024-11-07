@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:lisha/app/data/services/supabase_service.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../../config/app_constants.dart';
 import '../../models/portfolio_model.dart';
@@ -20,6 +21,21 @@ class PortfolioRemoteDataSource {
       image_url,
       category:category_id (*)
       ''');
+      return response.map((e) => PortfolioModel.fromJson(e)).toList();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<List<PortfolioModel>> getPortfoliosByFreelancerId() async {
+    try {
+      final response = await client.from('portfolio').select('''
+      id,
+      title,
+      description,
+      image_url,
+      category:category_id (*)
+      ''').eq('user_id', SupabaseService.mainUserId);
       return response.map((e) => PortfolioModel.fromJson(e)).toList();
     } catch (e) {
       rethrow;

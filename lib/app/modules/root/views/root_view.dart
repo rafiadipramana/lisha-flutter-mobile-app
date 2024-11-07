@@ -14,7 +14,9 @@ class RootView extends GetView<RootController> {
       body: PageView(
         controller: controller.pageController,
         onPageChanged: controller.changePage,
-        children: controller.pages,
+        children: controller.user?.userMetadata?['role'] == 'client'
+            ? controller.clientPages
+            : controller.freelancerPages,
       ),
       bottomNavigationBar: Obx(
         () => AppBottomNavbar(

@@ -1,3 +1,4 @@
+import 'package:app_links/app_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -9,6 +10,12 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  final AppLinks appLinks = AppLinks();
+  appLinks.uriLinkStream.listen((Uri? uri) {
+    if (uri != null) {
+      print('Received uri: ${uri}');
+    }
+  });
   await dotenv.load(fileName: '.env');
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL'] ?? '',
@@ -34,6 +41,9 @@ class LishaApp extends StatelessWidget {
       initialBinding: MainBinding(),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+      routingCallback:(value) {
+        print(value?.current);
+      },
     );
   }
 }

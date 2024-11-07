@@ -67,12 +67,12 @@ class FreelancerProfileView extends GetView<FreelancerProfileController> {
                 InventoryItem(
                   iconPath: AppAssets.cardIcon,
                   title: 'Change payment method',
-                  onTap: () {},
+                  onTap: controller.navigateToChangePaymentMethod,
                 ),
                 InventoryItem(
                   iconPath: AppAssets.currencyIcon,
                   title: 'Change subscription',
-                  onTap: () {},
+                  onTap: controller.navigateToSubscription,
                 ),
                 InventoryItem(
                   iconPath: AppAssets.bellIcon,
@@ -82,7 +82,7 @@ class FreelancerProfileView extends GetView<FreelancerProfileController> {
                 InventoryItem(
                   iconPath: AppAssets.tagIcon,
                   title: 'Set Offer',
-                  onTap: () {},
+                  onTap: controller.navigateToSetOffer,
                 ),
                 InventoryItem(
                   iconPath: AppAssets.keySquareIcon,

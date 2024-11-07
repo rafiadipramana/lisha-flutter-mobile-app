@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lisha/app/domain/entities/chat.dart';
 import 'package:lisha/app/domain/entities/conversation.dart';
@@ -48,7 +49,18 @@ class FreelancerChatroomController extends GetxController {
 
   @override
   void onReady() {
+    if (draggableScrollableController.isAttached) {
+      expandDraggableScrollableSheet();
+    }
     super.onReady();
+  }
+
+  void expandDraggableScrollableSheet() {
+    _draggableScrollableController.animateTo(
+      1 - (MediaQuery.of(Get.context!).padding.bottom / Get.height),
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
   }
 
   Future<void> addChat() async {

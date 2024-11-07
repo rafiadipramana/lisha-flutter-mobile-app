@@ -15,6 +15,7 @@ import 'package:lisha/app/domain/repositories/conversation_repository.dart';
 import 'package:lisha/app/domain/repositories/marketing_service_repository.dart';
 import 'package:lisha/app/domain/repositories/portfolio_repository.dart';
 import 'package:lisha/app/domain/repositories/user_repository.dart';
+import 'package:lisha/app/domain/use_cases/add_appointment_use_case.dart';
 import 'package:lisha/app/domain/use_cases/add_chat_use_case.dart';
 import 'package:lisha/app/domain/use_cases/add_freelancer_marketing_service_use_case.dart';
 import 'package:lisha/app/domain/use_cases/add_portfolio_use_case.dart';
@@ -24,11 +25,13 @@ import 'package:lisha/app/domain/use_cases/delete_freelancer_marketing_service_u
 import 'package:lisha/app/domain/use_cases/delete_freelancer_portfolio_image_use_case.dart';
 import 'package:lisha/app/domain/use_cases/delete_freelancer_portfolio_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_chats_by_conversation_id_use_case.dart';
+import 'package:lisha/app/domain/use_cases/get_client_appointments_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_conversation_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_freelancer_appointments_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_freelancer_marketing_service_by_id_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_freelancer_marketing_services_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_freelancer_portfolio_by_id_use_case.dart';
+import 'package:lisha/app/domain/use_cases/get_freelancer_portfolios_by_freelancer_id_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_freelancer_portfolios_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_portfolio_categories_use_case.dart';
 import 'package:lisha/app/domain/use_cases/get_user_data_use_case.dart';
@@ -74,6 +77,7 @@ class MainBinding extends Bindings {
     Get.lazyPut<CheckLoginStatusUsecase>(() => CheckLoginStatusUsecase(userRepository: Get.find()), fenix: true);
     Get.lazyPut<GetUserDataUseCase>(() => GetUserDataUseCase(userRepository: Get.find()), fenix: true);
 
+    Get.lazyPut<GetFreelancerPortfoliosByFreelancerIdUseCase>(() => GetFreelancerPortfoliosByFreelancerIdUseCase(portfolioRepository: Get.find()), fenix: true);
     Get.lazyPut<GetFreelancerPortfolioByIdUseCase>(() => GetFreelancerPortfolioByIdUseCase(portfolioRepository: Get.find()), fenix: true);
     Get.lazyPut<GetFreelancerPortfoliosUseCase>(() => GetFreelancerPortfoliosUseCase(portfolioRepository: Get.find()), fenix: true);
     Get.lazyPut<AddPortfolioUseCase>(() => AddPortfolioUseCase(portfolioRepository: Get.find()), fenix: true);
@@ -83,7 +87,9 @@ class MainBinding extends Bindings {
     Get.lazyPut<DeleteFreelancerPortfolioImageUseCase>(() => DeleteFreelancerPortfolioImageUseCase(portfolioRepository: Get.find()), fenix: true);
     Get.lazyPut<DeleteFreelancerPortfolioUseCase>(() => DeleteFreelancerPortfolioUseCase(portfolioRepository: Get.find()), fenix: true);
 
+    Get.lazyPut<GetClientAppointmentsUseCase>(() => GetClientAppointmentsUseCase(appointmentRepository: Get.find()), fenix: true);
     Get.lazyPut<GetFreelancerAppointmentsUseCase>(() => GetFreelancerAppointmentsUseCase(appointmentRepository: Get.find()), fenix: true);
+    Get.lazyPut<AddAppointmentUseCase>(() => AddAppointmentUseCase(appointmentRepository: Get.find()), fenix: true);
 
     Get.lazyPut<GetConversationUseCase>(() => GetConversationUseCase(conversationRepository: Get.find()), fenix: true);
 

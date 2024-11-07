@@ -1,7 +1,7 @@
 import '../data_sources/remote/appointment_remote_data_source.dart';
-import '../../domain/entities/appoitment.dart';
-import '../../domain/repositories/appointment_repository.dart';
 import '../mappers/appointment_mapper.dart';
+import '../../domain/entities/appointment.dart';
+import '../../domain/repositories/appointment_repository.dart';
 
 class AppointmentRepositoryImpl implements AppointmentRepository {
   final AppointmentRemoteDataSource appointmentRemoteDataSource;
@@ -14,7 +14,7 @@ class AppointmentRepositoryImpl implements AppointmentRepository {
   Future<List<Appointment>> getClientAppointments() async {
     try {
       final appointmentModels = await appointmentRemoteDataSource.getClientAppointments();
-      return appointmentModels.map((e) => AppointmentMapper.fromModel(e)).toList();
+      return AppointmentMapper.fromModelList(appointmentModels);
     } catch (e) {
       rethrow;
     }
@@ -24,7 +24,17 @@ class AppointmentRepositoryImpl implements AppointmentRepository {
   Future<List<Appointment>> getFreelancerAppointments() async {
     try {
       final appointmentModels = await appointmentRemoteDataSource.getFreelancerAppointments();
-      return appointmentModels.map((e) => AppointmentMapper.fromModel(e)).toList();
+      return AppointmentMapper.fromModelList(appointmentModels);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<Appointment>> createAppointment(Appointment appointment) async {
+    try {
+      final appointmentModels = await appointmentRemoteDataSource.createAppointment(AppointmentMapper.fromEntity(appointment));
+      return AppointmentMapper.fromModelList(appointmentModels);
     } catch (e) {
       rethrow;
     }

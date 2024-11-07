@@ -20,6 +20,12 @@ class PortfolioRepositoryImpl implements PortfolioRepository {
   }
 
   @override
+  Future<List<Portfolio>> getPortfoliosByFreelancerId() async {
+    final portfolioModels = await portfolioRemoteDataSource.getPortfoliosByFreelancerId();
+    return PortfolioMapper.fromModelList(portfolioModels);
+  }
+
+  @override
   Future<List<PortfolioCategory>> getPortfolioCategories() async {
     final portfolioCategoryModels =
         await portfolioRemoteDataSource.getPortfolioCategories();

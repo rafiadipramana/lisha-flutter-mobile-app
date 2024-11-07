@@ -5,6 +5,8 @@ import '../entities/portfolio_category.dart';
 abstract class PortfolioRepository {
   Future<List<Portfolio>> getPortfolios();
 
+  Future<List<Portfolio>> getPortfoliosByFreelancerId();
+
   Future<Portfolio> getPortfolioById(int id);
 
   Future<List<PortfolioCategory>> getPortfolioCategories();

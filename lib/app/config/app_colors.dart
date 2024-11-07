@@ -9,12 +9,20 @@ class AppColors {
   static const grey = Color(0xFFA2A2A3);
   static const grey50 = Color(0xFF20232A);
   static const grey100 = Color(0xFF2E323B);
+  static const grey150 = Color(0xFF797A7E);
   static const grey200 = Color(0xFF758195);
+  static const grey250 = Color(0xFF373A41);
+  static const grey300 = Color(0xFF9C9D9F);
+  static const grey350 = Color(0xFF2E3037);
+  static const grey400 = Color(0xFF323338);
+  static const grey500 = Color(0xFF292A2C);
   static const transparent = Color(0x00000000);
 
   static const primary = Color(0xFFD758D2);
   static const primaryVariant = Color(0xFFCA7793);
   static const secondary = Color(0xFFF3ECF0);
+  static const tertiary = Color(0xFF5271FF);
+  static const tertiaryTransparent = Color(0xFF222735);
   static LinearGradient primaryGradient = LinearGradient(
         colors: [
           const Color(0xFFF1B6F0).withOpacity(0.5 * 0.2),

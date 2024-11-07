@@ -118,7 +118,7 @@ class FreelancerChatroomView extends GetView<FreelancerChatroomController> {
               );
             },
           ),
-          Container(
+          SizedBox(
             height: size.height,
             width: size.width,
             child: DraggableScrollableSheet(
@@ -127,8 +127,7 @@ class FreelancerChatroomView extends GetView<FreelancerChatroomController> {
               minChildSize: 0.65,
               maxChildSize: 1 - (paddingTop / size.height),
               snap: true,
-              builder:
-                  (BuildContext context, ScrollController scrollController) {
+              builder: (context, scrollController) {
                 return Material(
                   type: MaterialType.transparency,
                   child: Ink(
@@ -144,13 +143,26 @@ class FreelancerChatroomView extends GetView<FreelancerChatroomController> {
                     ),
                     child: Column(
                       children: <Widget>[
-                        Ink(
-                          height: 8,
-                          width: 60,
-                          decoration: BoxDecoration(
-                            color: AppColors.grey200,
-                            borderRadius: BorderRadius.circular(32),
-                          ),
+                        Obx(
+                          () {
+                            final double progress =
+                                controller.fractionalScrollPosition > 0.65
+                                    ? (controller.fractionalScrollPosition -
+                                            0.65) /
+                                        0.30
+                                    : 0.0;
+
+                            final double opacity = 1.0 - progress;
+
+                            return Ink(
+                              height: 8,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                color: AppColors.grey200.withOpacity(opacity),
+                                borderRadius: BorderRadius.circular(32),
+                              ),
+                            );
+                          },
                         ),
                         Obx(() {
                           final scale = controller.fractionalScrollPosition >

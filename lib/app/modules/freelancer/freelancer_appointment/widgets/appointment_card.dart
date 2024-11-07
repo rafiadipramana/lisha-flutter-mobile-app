@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
-import 'package:lisha/app/domain/entities/appoitment.dart';
+import 'package:lisha/app/domain/entities/appointment.dart';
 import '../../../../extensions/text_styles/int_text_style_extension.dart';
 import '../../../../config/app_assets.dart';
 import '../../../../config/app_colors.dart';

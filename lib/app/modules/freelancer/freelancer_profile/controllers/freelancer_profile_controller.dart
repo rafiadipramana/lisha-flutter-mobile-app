@@ -4,20 +4,6 @@ import 'package:lisha/app/routes/app_pages.dart';
 import 'package:lisha/app/widgets/app_confirmation_dialog.dart';
 
 class FreelancerProfileController extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void displayConfirmationDialog() {
     Get.dialog(
@@ -29,6 +15,18 @@ class FreelancerProfileController extends GetxController {
         onCancel: () => Get.back(),
       ),
     );
+  }
+
+  void navigateToChangePaymentMethod() {
+    Get.toNamed(Routes.FREELANCER_PAYMENT_METHOD);
+  }
+
+  void navigateToSubscription() {
+    Get.toNamed(Routes.FREELANCER_SUBSCRIPTION);
+  }
+
+  void navigateToSetOffer() {
+    Get.toNamed(Routes.FREELANCER_SET_OFFER);
   }
 
   Future<void> logout() async {

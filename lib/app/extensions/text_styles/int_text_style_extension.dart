@@ -43,4 +43,22 @@ extension IntTextStyleExtension on double {
       fontSize: this,
     );
   }
+
+  TextStyle get secondaryRegular {
+    return AppTextStyles.secondaryRegular.copyWith(
+      fontSize: this,
+    );
+  }
+
+  TextStyle get secondarySemiBold {
+    return AppTextStyles.secondarySemiBold.copyWith(
+      fontSize: this,
+    );
+  }
+
+  TextStyle get secondaryBold {
+    return AppTextStyles.secondaryBold.copyWith(
+      fontSize: this,
+    );
+  }
 }

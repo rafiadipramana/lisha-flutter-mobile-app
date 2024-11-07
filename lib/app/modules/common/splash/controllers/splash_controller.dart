@@ -1,8 +1,8 @@
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:lisha/app/domain/use_cases/check_login_status_use_case.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:lisha/app/routes/app_pages.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import '../../../../domain/use_cases/check_login_status_use_case.dart';
 
 class SplashController extends GetxController {
   @override
